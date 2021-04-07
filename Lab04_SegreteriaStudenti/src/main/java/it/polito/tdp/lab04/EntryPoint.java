@@ -4,6 +4,7 @@ import javafx.application.Application;
 import static javafx.application.Application.launch;
 
 import it.polito.tdp.lab04.FXMLController;
+import it.polito.tdp.lab04.model.Model;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,7 +17,7 @@ public class EntryPoint extends Application {
     public void start(Stage stage) throws Exception {
         
     	FXMLController controller;
-    	
+    	Model model = new Model();
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Scene.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
@@ -26,7 +27,7 @@ public class EntryPoint extends Application {
         /*
 		 * Create and set the model here!
 		 */
-		// controller.setModel();
+        controller.setModel(model);
         
         
         stage.setTitle("JavaFX and Maven");

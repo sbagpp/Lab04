@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.lab04.FXMLController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.lab04.FXMLController">
    <top>
       <Label text="Lab4_Segreteria_Studenti" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -13,4 +18,22 @@
          </BorderPane.margin>
       </Label>
    </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Corso :" />
+            <ComboBox fx:id="menuCorsi" layoutX="69.0" layoutY="9.0" onAction="#setCorso" prefWidth="150.0" />
+            <Button fx:id="buttonCercaIscritti" layoutX="251.0" layoutY="9.0" mnemonicParsing="false" onAction="#buttonCercaIscritti" text="Cerca iscritti corso" />
+            <Label layoutX="14.0" layoutY="53.0" text="Studente" />
+            <CheckBox fx:id="checkBoxControlloMatricola" layoutX="231.0" layoutY="53.0" mnemonicParsing="false" onAction="#esistenzaMatricola" />
+            <Button fx:id="buttonCercaCorsi" layoutX="12.0" layoutY="85.0" mnemonicParsing="false" onAction="#cercaCorsi" text="Cerca corsi" />
+            <Button fx:id="buttonIscriviMatricola" layoutX="494.0" layoutY="85.0" mnemonicParsing="false" onAction="#iscriviAlCorso" text="Iscrivi" />
+            <TextArea fx:id="txtResult" editable="false" layoutX="12.0" layoutY="130.0" prefHeight="200.0" prefWidth="574.0" promptText="result" />
+            <Button fx:id="clear" layoutX="516.0" layoutY="336.0" mnemonicParsing="false" onAction="#clearResult" text="clear" />
+            <TextField fx:id="txtMatricola" layoutX="71.0" layoutY="48.0" prefHeight="17.0" prefWidth="148.0" promptText="matricola" />
+            <TextField fx:id="txtNome" layoutX="267.0" layoutY="47.0" promptText="nome" />
+            <TextField fx:id="txtCognome" layoutX="450.0" layoutY="47.0" prefHeight="17.0" prefWidth="148.0" promptText="congome" />
+         </children>
+      </AnchorPane>
+   </center>
 </BorderPane>

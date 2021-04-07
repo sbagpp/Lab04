@@ -29,14 +29,15 @@ public class CorsoDAO {
 			ResultSet rs = st.executeQuery();
 
 			while (rs.next()) {
-
+				/*
 				String codins = rs.getString("codins");
 				int numeroCrediti = rs.getInt("crediti");
 				String nome = rs.getString("nome");
 				int periodoDidattico = rs.getInt("pd");
-
-				System.out.println(codins + " " + numeroCrediti + " " + nome + " " + periodoDidattico);
-
+				 */
+				//System.out.println(codins + " " + numeroCrediti + " " + nome + " " + periodoDidattico);
+				Corso risultato = new Corso (rs.getString("codins"), rs.getInt("pd"), rs.getInt("crediti"), rs.getString("nome"));
+				corsi.add(risultato);
 				// Crea un nuovo JAVA Bean Corso
 				// Aggiungi il nuovo oggetto Corso alla lista corsi
 			}

@@ -6,6 +6,7 @@ import java.util.Set;
 import it.polito.tdp.lab04.DAO.CorsoDAO;
 import it.polito.tdp.lab04.DAO.StudenteDAO;
 import it.polito.tdp.lab04.DAO.StudenteGiaIscritto;
+import it.polito.tdp.lab04.DAO.StudenteNonTrovato;
 import it.polito.tdp.lab04.DAO.ValoreNonTrovato;
 
 public class Model {
@@ -35,5 +36,17 @@ public class Model {
 	public boolean inscriviStudenteACorso(Studente studente, Corso corso) throws StudenteGiaIscritto{
 		boolean risultato = this.cDAO.inscriviStudenteACorso(studente, corso);
 		return risultato;
+	}
+
+	public List<Studente> getAllStudenti() {
+		return this.sDAO.getAllStudenti();
+	}
+	
+	public Studente cercaStudente(Integer matricola) throws StudenteNonTrovato {
+		return this.sDAO.getStudenteToMatricola(matricola);
+	}
+	
+	public List<Corso> getCorsiToStudente(Studente s){
+		return this.sDAO.getCorsiToStudente(s);
 	}
 }

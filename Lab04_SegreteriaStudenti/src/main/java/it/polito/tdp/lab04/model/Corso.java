@@ -71,10 +71,14 @@ public class Corso {
 		return true;
 	}
 
-	@Override
-	public String toString() {
+	public String toString(int i) {
 		return "Corso codice di insegnamento=" + codIns + ",\t periodoDidattico=" + periodoDidattico + ",\t crediti=" + crediti + ",\t nome corso="
 				+ nome ;
+	}
+
+	@Override
+	public String toString() {
+		return  nome ;
 	}
 	
 	
