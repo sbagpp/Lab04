@@ -131,7 +131,7 @@ public class CorsoDAO {
 		// TODO
 		// ritorna true se l'iscrizione e' avvenuta con successo
 		String sql = "Select *"
-				+ "from iscrizione"
+				+ "from iscrizione" 
 				+ "where iscrizione.`codins`=? and iscrizione.`matricola`=?";
 		try {
 			Connection conn = ConnectDB.getConnection();

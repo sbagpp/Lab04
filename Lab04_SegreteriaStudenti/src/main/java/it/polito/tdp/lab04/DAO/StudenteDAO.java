@@ -66,11 +66,11 @@ public class StudenteDAO {
 		// TODO Auto-generated method stub
 		String sql = "select corso.`codins`, corso.`crediti`, corso.`nome`, corso.`pd`"
 				+ "from corso, iscrizione"
-				+ "where iscrizione.`matricola`=161334 and iscrizione.`codins`=corso.`codins`";
+				+ "where iscrizione.`matricola`=? and iscrizione.`codins`=corso.`codins`";
 		try {
 			Connection conn = ConnectDB.getConnection();
 			PreparedStatement st = conn.prepareStatement(sql);
-			//st.setInt(1, s.getMatricola());
+			st.setInt(1, s.getMatricola());
 			ResultSet rs = st.executeQuery();
 			List <Corso> c = new ArrayList<>();
 			while (rs.next()) {
