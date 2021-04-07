@@ -47,6 +47,6 @@ public class Model {
 	}
 	
 	public List<Corso> getCorsiToStudente(Studente s){
-		return this.sDAO.getCorsiToStudente(s);
+		return this.cDAO.getCorsiToStudente(s);
 	}
 }

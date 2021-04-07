@@ -123,6 +123,32 @@ public class CorsoDAO {
 					throw new RuntimeException("Errore Db", e);
 				}
 	}
+	public List<Corso> getCorsiToStudente(Studente s) {
+		// TODO Auto-generated method stub
+		final String sql = "select corso.`codins`, corso.`crediti`, corso.`nome`, corso.`pd`"
+				+ "from corso, iscrizione"
+				+ "where iscrizione.`matricola`=? and iscrizione.`codins`=corso.`codins`";
+		try {
+			Connection conn = ConnectDB.getConnection();
+			PreparedStatement st = conn.prepareStatement(sql);
+			st.setInt(1, s.getMatricola());
+			ResultSet rs = st.executeQuery();
+			List <Corso> c = new ArrayList<>();
+			while (rs.next()) {
+				//String codIns, Integer periodoDidattico, Integer crediti, String nome
+				Corso co = new Corso (rs.getString("codins"), rs.getInt("pd"), rs.getInt("crediti"), rs.getString("nome"));
+				c.add(co);
+			}
+			rs.close();
+			conn.close();
+			st.close();
+			return c;
+		
+		}
+		catch (SQLException sqle){
+			throw new RuntimeException("Errore Db", sqle);
+		}
+	}
 
 	/*
 	 * Data una matricola ed il codice insegnamento, iscrivi lo studente al corso.
